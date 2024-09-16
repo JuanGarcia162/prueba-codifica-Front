@@ -1,0 +1,130 @@
+<h2 mat-dialog-title class="dialog-title">{{customerName}} - New Order</h2>
+<mat-dialog-content>
+    <form [formGroup]="orderForm" (ngSubmit)="submitOrder()">
+
+        <!-- Order Information -->
+        <h3>Order</h3>
+        <div class="order-section">
+            <mat-form-field appearance="fill">
+                <mat-label>Employee</mat-label>
+                <mat-select formControlName="empID" required>
+                    <mat-option *ngFor="let employee of employees" [value]="employee.empID">
+                        {{employee.fullName}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="orderForm.get('empID')?.hasError('required')">This field is required.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Shipper</mat-label>
+                <mat-select formControlName="shipperID" required>
+                    <mat-option *ngFor="let shipper of shippers" [value]="shipper.shipperID">
+                        {{shipper.companyName}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="orderForm.get('shipperID')?.hasError('required')">This field is required.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Ship Name</mat-label>
+                <input matInput formControlName="shipName" required>
+                <mat-error *ngIf="orderForm.get('shipName')?.hasError('required')">This field is required.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Ship Address</mat-label>
+                <input matInput formControlName="shipAddress" required>
+                <mat-error *ngIf="orderForm.get('shipAddress')?.hasError('required')">This field is
+                    required.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Ship City</mat-label>
+                <input matInput formControlName="shipCity" required>
+                <mat-error *ngIf="orderForm.get('shipCity')?.hasError('required')">This field is required.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Ship Country</mat-label>
+                <input matInput formControlName="shipCountry" required>
+                <mat-error *ngIf="orderForm.get('shipCountry')?.hasError('required')">This field is
+                    required.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Order Date</mat-label>
+                <input matInput formControlName="orderDate" [matDatepicker]="picker" required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="orderForm.get('orderDate')?.hasError('required')">This field is required.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Required Date</mat-label>
+                <input matInput formControlName="requiredDate" [matDatepicker]="picker2" required>
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+                <mat-error *ngIf="orderForm.get('requiredDate')?.hasError('required')">This field is
+                    required.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Shipped Date</mat-label>
+                <input matInput formControlName="shippedDate" [matDatepicker]="picker3" required>
+                <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                <mat-datepicker #picker3></mat-datepicker>
+                <mat-error *ngIf="orderForm.get('shippedDate')?.hasError('required')">This field is
+                    required.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>$ freight</mat-label>
+                <input matInput type="text" formControlName="freight" required inputmode="numeric" pattern="[0-9]*">
+                <mat-error *ngIf="orderForm.get('freight')?.hasError('required')">This field is required.</mat-error>
+            </mat-form-field>
+        </div>
+
+        <!-- Order Details -->
+        <h3>Order Details</h3>
+        <div class="order-details-section">
+            <mat-form-field appearance="fill">
+                <mat-label>Product</mat-label>
+                <mat-select formControlName="productID" required>
+                    <mat-option *ngFor="let product of products" [value]="product.productID">
+                        {{product.productName}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>$ Unit Price</mat-label>
+                <input matInput type="text" formControlName="unitPrice" required inputmode="numeric" pattern="[0-9]*">
+                <mat-error *ngIf="orderForm.get('unitPrice')?.hasError('required')">This field is required.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Quantity</mat-label>
+                <input matInput type="number" formControlName="qty" required inputmode="numeric" pattern="[0-9]*">
+                <mat-error *ngIf="orderForm.get('qty')?.hasError('required')">This field is required.</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>discount</mat-label>
+                <input matInput type="number" formControlName="discount" inputmode="decimal" min="0" max="1" step="0.01"
+                    required>
+                <mat-error *ngIf="orderForm.get('discount')?.hasError('invalidDiscount')">
+                    The discount must be between 0.01 and 1.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-error *ngIf="orderForm.hasError('atLeastOneDetailRequired')">
+                You must complete at least one of the details: Unit Price, Quantity, or discount.
+            </mat-error>
+        </div>
+
+        <div class="actions">
+            <button mat-button mat-dialog-close class="text-button">Close</button>
+            <button mat-button class="text-button" type="submit">Save</button>
+        </div>
+    </form>
+</mat-dialog-content>

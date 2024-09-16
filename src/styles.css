@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Ajustar los bordes de todos los componentes mat-form-field */
+.mat-form-field {
+  border-radius: 0 !important; /* Elimina los bordes redondeados */
+}
+
+/* Ajustar los bordes de los inputs y selects */
+.mat-input-element,
+.mat-select-trigger {
+  border-radius: 0 !important; /* Elimina los bordes redondeados */
+}

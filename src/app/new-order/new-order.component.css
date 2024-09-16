@@ -1,0 +1,57 @@
+.text-button {
+  color: #4caf50; /* Verde */
+  font-weight: 500;
+  margin-right: 16px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.mat-dialog-content {
+  padding: 16px;
+  overflow: hidden;
+}
+
+.dialog-title {
+  font-size: 20px;
+  background-color: #4caf50;
+  color: white;
+  padding: 16px;
+  margin: 0;
+}
+
+.order-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.order-details-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-input-element,
+.mat-select-trigger {
+  border-radius: 0;
+}
+
+/* Desactiva las flechas de incremento/decremento en navegadores como Chrome */
+input[type="text"]::-webkit-outer-spin-button,
+input[type="text"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Desactiva las flechas en Firefox */
+input[type="text"][inputmode="numeric"] {
+  -moz-appearance: textfield;
+}
