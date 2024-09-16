@@ -57,7 +57,7 @@ export interface OrderCreateDto {
   providedIn: 'root'
 })
 export class CustomerService {
-  private apiUrl = 'https://localhost:7276/api';
+  private apiUrl = 'https://localhost:7133/api';
 
   constructor(private http: HttpClient) { }
 

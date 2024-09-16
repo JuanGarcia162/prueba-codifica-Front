@@ -1,27 +1,55 @@
-# SalesDatePrediction
+# Sales Data Prediction - Front
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.4.
+## Description
 
-## Development server
+This is an Angular project developed with version 18.2.4. The project includes functionalities for managing and creating orders, using Angular Material for UI components.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Technologies
 
-## Code scaffolding
+- **Angular**:
+- **TypeScript**:
+- **RxJS**:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Prerequisites
 
-## Build
+- [Node.js](https://nodejs.org/) (version 16 or higher recommended)
+- [npm](https://www.npmjs.com/) (included with Node.js)
+- [Backend API](https://github.com/JuanGarcia162/prueba-codifica-back) (A backend API is required for the project to work successfully.)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Cloning the Repository
 
-## Running unit tests
+To clone this project, run the following command in your terminal:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+git clone https://github.com/JuanGarcia162/prueba-codifica-Front.git
+```
 
-## Running end-to-end tests
+# Installation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Navigate to the project directory:
 
-## Further help
+```bash
+cd prueba-codifica-Front
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Install the project dependencies:
+
+```bash
+npm install
+```
+
+## Running the Project
+
+To create a build of the project (make sure you are in the root folder):
+
+```bash
+ng build
+```
+
+To run the project in the browser:
+
+```bash
+ng serve --o
+```
+
+This will automatically open the browser.
